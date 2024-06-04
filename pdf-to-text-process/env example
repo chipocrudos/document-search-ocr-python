@@ -1,0 +1,23 @@
+# Disable file validation
+# PYDEVD_DISABLE_FILE_VALIDATION=1
+# Disable cache python
+# PYTHONDONTWRITEBYTECODE=1
+# App config
+ASYNCRONOUS_SEMAPHORE=3
+
+# Minio config
+ACCESS_KEY=yf465o53atGGgi5diyOV
+SECRET_KEY=SHeCtb6WWuKgMWrarRh4VFopMe0froYpAQrXcDeh
+BUCKET_NAME=documents
+ENDPOINT_URL=http://10.10.10.9:9000
+
+
+# RabbitMQ config
+RABBITMQ_HOST=10.10.10.9
+RABBITMQ_QUEUE=documents
+RABBITMQ_PREFETCH_COUNT=1
+
+# Zincsearch
+ZINC_HOST=http://10.10.10.9:4080
+ZINC_USERNAME=pdf
+ZINC_PASSWORD=superpass1

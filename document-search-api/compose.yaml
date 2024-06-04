@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  document-api:
+    build:
+      context: .
+      dockerfile: Docker/document-search-api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/document-search-api
+    env_file:
+      - .env

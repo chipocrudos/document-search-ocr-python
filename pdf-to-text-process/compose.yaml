@@ -1,0 +1,11 @@
+services:
+  coonvert-pdf:
+    image: coonvert-pdf
+    build:
+      context: .
+      dockerfile: Docker/app/Dockerfile
+    volumes:
+      - ./app:/app
+    env_file:
+      - .env
+    command: python3 main.py

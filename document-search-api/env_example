@@ -1,0 +1,26 @@
+# Disable file validation
+# PYDEVD_DISABLE_FILE_VALIDATION=1
+# Disable cache python
+PYTHONDONTWRITEBYTECODE=1
+
+# App config
+KEY=12345
+CORS_DOMAINS=["*","localhost"]
+
+# Minio config
+ACCESS_KEY=yf465o53atGGgi5diyOV
+SECRET_KEY=SHeCtb6WWuKgMWrarRh4VFopMe0froYpAQrXcDeh
+BUCKET_NAME=documents
+ENDPOINT_URL=http://localhost:9000
+PUBLIC_EXP_TIME=1
+
+
+# RabbitMQ config
+RABBITMQ_HOST=localhost
+RABBITMQ_QUEUE=documents
+
+
+# Zincsearch
+ZINC_HOST=http://10.10.10.9:4080
+ZINC_USERNAME=reader
+ZINC_PASSWORD=readerpass1

@@ -1,0 +1,44 @@
+services:
+  minio:
+    image: minio/minio
+    container_name: $MINIO_HOSTNAME
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_store:/data
+    environment:
+      - MINIO_ROOT_USER=$MINIO_ROOT_USER
+      - MINIO_ROOT_PASSWORD=$MINIO_ROOT_PASSWORD
+    command: server --console-address ":9001" /data
+
+  minio-mc:
+    image: minio/mc
+    depends_on:
+      - minio
+    env_file:
+      - .env
+    entrypoint: >
+      /bin/sh -c " /usr/bin/mc config host add myminio http://${MINIO_HOSTNAME}:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD; /usr/bin/mc mb --quiet myminio/$MINIO_BUCKET; /usr/bin/mc policy set none myminio/$MINIO_BUCKET; "
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  zincsearch:
+    image: public.ecr.aws/zinclabs/zincsearch:latest
+    container_name: $ZINCSEARCH_HOSTNAME
+    ports:
+      - "4080:4080"
+    volumes:
+      - zincsearch_data:/data
+    env_file:
+      - .env
+
+volumes:
+  minio_store:
+  zincsearch_data:
+
+

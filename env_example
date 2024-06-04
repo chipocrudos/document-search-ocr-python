@@ -1,0 +1,11 @@
+# Minio
+MINIO_HOSTNAME=minio
+MINIO_ROOT_USER=miniostore
+MINIO_ROOT_PASSWORD=strong3xample
+MINIO_BUCKET=documents
+
+# zincseach
+ZINC_DATA_PATH=/data
+ZINC_FIRST_ADMIN_USER=admin
+ZINC_FIRST_ADMIN_PASSWORD=strong3xample
+ZINCSEARCH_HOSTNAME=zincsearch
